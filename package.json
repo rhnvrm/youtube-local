@@ -1,0 +1,24 @@
+{
+  "name": "youtube-local",
+  "version": "1.0.0",
+  "description": "youtube over lan",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rhnvrm/youtube-local.git"
+  },
+  "author": "Rohan Verma <hello@rohanverma.net>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rhnvrm/youtube-local/issues"
+  },
+  "homepage": "https://github.com/rhnvrm/youtube-local",
+  "dependencies": {
+    "event-stream": "^3.3.1",
+    "youstream": "^0.1.2"
+  }
+}

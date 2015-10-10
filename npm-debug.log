@@ -1,0 +1,73 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/node',
+1 verbose cli   '/usr/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   '--save',
+1 verbose cli   'evevent-stream' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.37
+4 verbose node symlink /usr/bin/node
+5 verbose readDependencies using package.json deps
+6 verbose cache add [ 'evevent-stream', null ]
+7 verbose cache add name=undefined spec="evevent-stream" args=["evevent-stream",null]
+8 verbose parsed url { protocol: null,
+8 verbose parsed url   slashes: null,
+8 verbose parsed url   auth: null,
+8 verbose parsed url   host: null,
+8 verbose parsed url   port: null,
+8 verbose parsed url   hostname: null,
+8 verbose parsed url   hash: null,
+8 verbose parsed url   search: null,
+8 verbose parsed url   query: null,
+8 verbose parsed url   pathname: 'evevent-stream',
+8 verbose parsed url   path: 'evevent-stream',
+8 verbose parsed url   href: 'evevent-stream' }
+9 silly lockFile af6c5b89-evevent-stream evevent-stream
+10 verbose lock evevent-stream /home/rohan/.npm/af6c5b89-evevent-stream.lock
+11 silly lockFile af6c5b89-evevent-stream evevent-stream
+12 silly lockFile af6c5b89-evevent-stream evevent-stream
+13 verbose addNamed [ 'evevent-stream', '' ]
+14 verbose addNamed [ null, '*' ]
+15 silly lockFile 4eab856b-evevent-stream evevent-stream@
+16 verbose lock evevent-stream@ /home/rohan/.npm/4eab856b-evevent-stream.lock
+17 silly addNameRange { name: 'evevent-stream', range: '*', hasData: false }
+18 verbose request where is /evevent-stream
+19 verbose request registry http://registry.npmjs.org/
+20 verbose request id c7065395af11ddae
+21 verbose url raw /evevent-stream
+22 verbose url resolving [ 'http://registry.npmjs.org/', './evevent-stream' ]
+23 verbose url resolved http://registry.npmjs.org/evevent-stream
+24 verbose request where is http://registry.npmjs.org/evevent-stream
+25 info trying registry request attempt 1 at 18:26:03
+26 http GET http://registry.npmjs.org/evevent-stream
+27 http 404 http://registry.npmjs.org/evevent-stream
+28 silly registry.get cb [ 404,
+28 silly registry.get   { 'content-type': 'application/json',
+28 silly registry.get     'cache-control': 'max-age=0',
+28 silly registry.get     'accept-ranges': 'bytes',
+28 silly registry.get     date: 'Sat, 10 Oct 2015 12:56:06 GMT',
+28 silly registry.get     via: '1.1 varnish',
+28 silly registry.get     age: '0',
+28 silly registry.get     'x-served-by': 'cache-sin6922-SIN',
+28 silly registry.get     'x-cache': 'MISS',
+28 silly registry.get     'x-cache-hits': '0',
+28 silly registry.get     'x-timer': 'S1444481766.518261,VS0,VE225',
+28 silly registry.get     'content-length': '2',
+28 silly registry.get     connection: 'Keep-Alive' } ]
+29 silly lockFile 4eab856b-evevent-stream evevent-stream@
+30 silly lockFile 4eab856b-evevent-stream evevent-stream@
+31 error 404 Not Found
+31 error 404
+31 error 404 'evevent-stream' is not in the npm registry.
+31 error 404 You should bug the author to publish it
+31 error 404 It was specified as a dependency of 'youtube-local'
+31 error 404
+31 error 404 Note that you can also install from a
+31 error 404 tarball, folder, or http url, or git url.
+32 error System Linux 3.14.2-031402-generic
+33 error command "/usr/bin/node" "/usr/bin/npm" "install" "--save" "evevent-stream"
+34 error cwd /home/rohan/projects/monsoon/node/youtube-local
+35 error node -v v0.10.37
+36 error npm -v 1.4.28
+37 error code E404
+38 verbose exit [ 1, true ]
