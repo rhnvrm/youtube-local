@@ -12,8 +12,14 @@
                 var morphed_url = "http://localhost:3000/watch/"+ url.split('?')[1].split('=')[1];
 
                 document.getElementById("video-src").src = morphed_url;
-                document.getElementById("video").load();
-                setTimeout(function(){ document.getElementById("video").load(); }, 3000);
+                video = document.getElementById("video");
+                video.load();
+                message = document.getElementById("message");
+                message.innerHTML = "Updating...";
+                setTimeout(function(){ 
+                    video.load();
+                    message.innerHTML = "";
+                }, 2000);
             }
 
         </script>
@@ -26,6 +32,7 @@
          </audio controls> -->
 
          Enter Youtube URL: <input type="text" id="youtube-url" onchange="change_video()">
+        <span id="message"></span>
          <br>
 
         <video id="video" controls>    
