@@ -10,6 +10,12 @@ const PORT=8080;
 var express = require('express');
 var app = express();
 
+app.get('/', function(req, res) {
+
+  res.sendfile(__dirname + '/index.html');
+
+});
+
 app.get('/download/:url', function (req, res) {
 
   url = "https://www.youtube.com/watch?v=" + req.params.url;
