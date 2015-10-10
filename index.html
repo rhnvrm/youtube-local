@@ -43,7 +43,7 @@
             <source src="http://localhost:8000" type="audio/mp3" />
          </audio controls> -->
          <div class="container-fluid">
-            <form>
+            <form onsubmit="event.preventDefault();">
                 <label>Enter Youtube URL:</label> <input type="text" class="form-control" id="youtube-url" onchange="change_video()">
                 <span id="message"></span>
             </form>
