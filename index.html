@@ -4,6 +4,8 @@
         <title> stream </title>
         <meta charset="utf-8" />
 
+        <script src="resources/jquery-2.1.4.min.js"></script>
+
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="resources/bootstrap/css/bootstrap.min.css">
 
@@ -36,19 +38,25 @@
 
     </head>
     <body>
-        <h1> Your Requested Youtube Video </h1>
+        <h1 align="center"> <a href = "http://github.com/rhnvrm/youtube-local">Youtube Local</a> </h1>
         <!-- <audio controls>
             <source src="http://localhost:8000" type="audio/mp3" />
          </audio controls> -->
+         <div class="container-fluid">
+            <form>
+                <label>Enter Youtube URL:</label> <input type="text" class="form-control" id="youtube-url" onchange="change_video()">
+                <span id="message"></span>
+            </form>
 
-         Enter Youtube URL: <input type="text" id="youtube-url" onchange="change_video()">
-        <span id="message"></span>
-         <br>
+             <br>
+             <div align = "center">
+            <video id="video" controls height = "480px">    
+                <source id="video-src" src="http://localhost:3000/watch/Wch3gJG2GJ4" type="video/mp4" />
+            </video controls>
+            </div>
+        </div>
 
-        <video id="video" controls>    
-            <source id="video-src" src="http://localhost:3000/watch/Wch3gJG2GJ4" type="video/mp4" />
-        </video controls>
 
-
+        <footer align = "center">made with <span class="glyphicon glyphicon-heart" aria-hidden="true"></span> by <a href="http://github.com/rhnvrm">rhnvrm</a></footer>
     </body>
 </html>
