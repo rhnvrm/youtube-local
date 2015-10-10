@@ -25,8 +25,12 @@ app.get('/download/:url', function (req, res) {
 
   save_as = url.split('?')[1].split('=')[1]+'.mp4';
 
-  ytdl(url, { filter: function(format) { return format.container === 'mp4'; } })
+  ytstream = ytdl(url, { filter: function(format) { return format.container === 'mp4'; } })
     .pipe(fs.createWriteStream('static/'+save_as));
+
+ /* ytstream.on('end', function() {
+    res.send('Download Finished');
+  });*/
 
   res.send('Hello World!');
 
@@ -75,9 +79,12 @@ app.get('/watch/:url', function(req, res){
 
       url = "https://www.youtube.com/watch?v=" + req.params.url;
 
-      ytdl(url, { filter: function(format) { return format.container === 'mp4'; } })
+      ytstream = ytdl(url, { filter: function(format) { return format.container === 'mp4'; } })
     .pipe(fs.createWriteStream('static/'+save_as+'.mp4'));
 
+        ytstream.on('end', function() {
+          console.log('Download Finished');
+        });
 
     } else {
       throw e;
