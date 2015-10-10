@@ -12,7 +12,7 @@ var app = express();
 
 app.get('/', function(req, res) {
 
-  res.sendfile(__dirname + '/index.html');
+  res.sendFile(__dirname + '/index.html');
 
 });
 
