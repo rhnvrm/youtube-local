@@ -3,6 +3,20 @@
     <head>
         <title> stream </title>
         <meta charset="utf-8" />
+
+        <script type="text/javascript">
+
+            function change_video(){
+                var url = document.getElementById('youtube-url').value;
+
+                var morphed_url = "http://localhost:3000/watch/"+ url.split('?')[1].split('=')[1];
+
+                document.getElementById("video-src").src = morphed_url;
+                document.getElementById("video").load();
+            }
+
+        </script>
+
     </head>
     <body>
         <h1> Your Requested Youtube Video </h1>
@@ -10,10 +24,11 @@
             <source src="http://localhost:8000" type="audio/mp3" />
          </audio controls> -->
 
-         
+         Enter Youtube URL: <input type="text" id="youtube-url" onchange="change_video()">
+         <br>
 
-        <video controls>    
-            <source src="http://localhost:3000/watch/Wch3gJG2GJ4" type="video/mp4" />
+        <video id="video" controls>    
+            <source id="video-src" src="http://localhost:3000/watch/Wch3gJG2GJ4" type="video/mp4" />
         </video controls>
 
 
