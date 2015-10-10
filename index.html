@@ -13,6 +13,7 @@
 
                 document.getElementById("video-src").src = morphed_url;
                 document.getElementById("video").load();
+                setTimeout(function(){ document.getElementById("video").load(); }, 3000);
             }
 
         </script>

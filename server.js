@@ -32,39 +32,55 @@ app.get('/download/:url', function (req, res) {
 
 app.get('/watch/:url', function(req, res){
   save_as = req.params.url;
-  var path = __dirname + '/static/' + save_as + '.mp4'
-    , stat = fs.statSync(path)
-    , total = stat.size
+  try{
+    var path = __dirname + '/static/' + save_as + '.mp4'
+      , stat = fs.statSync(path)
+      , total = stat.size
 
-  if (req.headers['range']) {
-    var range = req.headers.range
-      , parts = range.replace(/bytes=/, "").split("-")
-      , partialstart = parts[0]
-      , partialend = parts[1]
-      , start = parseInt(partialstart, 10)
-      , end = partialend ? parseInt(partialend, 10) : total-1
-      , chunksize = (end-start)+1
+    if (req.headers['range']) {
+      var range = req.headers.range
+        , parts = range.replace(/bytes=/, "").split("-")
+        , partialstart = parts[0]
+        , partialend = parts[1]
+        , start = parseInt(partialstart, 10)
+        , end = partialend ? parseInt(partialend, 10) : total-1
+        , chunksize = (end-start)+1
 
-    //console.log('RANGE: ' + start + ' - ' + end + ' = ' + chunksize)
+      //console.log('RANGE: ' + start + ' - ' + end + ' = ' + chunksize)
 
-    var file = fs.createReadStream(path, {start: start, end: end})
+      var file = fs.createReadStream(path, {start: start, end: end})
 
-    res.writeHead(206
-                 , { 'Content-Range': 'bytes ' + start + '-' + end + '/' + total
-                   , 'Accept-Ranges': 'bytes', 'Content-Length': chunksize
-                   , 'Content-Type': 'video/mp4'
-                   })
-    file.pipe(res)
+      res.writeHead(206
+                   , { 'Content-Range': 'bytes ' + start + '-' + end + '/' + total
+                     , 'Accept-Ranges': 'bytes', 'Content-Length': chunksize
+                     , 'Content-Type': 'video/mp4'
+                     })
+      file.pipe(res)
+
+    }
+    else {
+      console.log('ALL: ' + total)
+      res.writeHead(200
+                   , { 'Content-Length': total
+                     , 'Content-Type': 'video/mp4'
+                     })
+      fs.createReadStream(path).pipe(res)
+    }
+  }catch(e) {
+    if (e.code === 'ENOENT') {
+      console.log('File not found!');
+      console.log('Will atempt to download');
+
+      url = "https://www.youtube.com/watch?v=" + req.params.url;
+
+      ytdl(url, { filter: function(format) { return format.container === 'mp4'; } })
+    .pipe(fs.createWriteStream('static/'+save_as+'.mp4'));
+
+
+    } else {
+      throw e;
+    }
   }
-  else {
-    console.log('ALL: ' + total)
-    res.writeHead(200
-                 , { 'Content-Length': total
-                   , 'Content-Type': 'video/mp4'
-                   })
-    fs.createReadStream(path).pipe(res)
-  }
-
 
 });
 
