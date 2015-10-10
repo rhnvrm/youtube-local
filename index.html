@@ -36,22 +36,31 @@
 
         </script>
 
+        <style type="text/css">
+            body{
+                background: url("resources/swirl_pattern/swirl_pattern.png") repeat;
+            }
+        </style>
+
     </head>
     <body>
-        <h1 align="center"> <a href = "http://github.com/rhnvrm/youtube-local">Youtube Local</a> </h1>
+        
         <!-- <audio controls>
             <source src="http://localhost:8000" type="audio/mp3" />
          </audio controls> -->
-         <div class="container-fluid">
+         <div class="container-fluid" style="padding-bottom: 10px;background: rgba(255, 255, 255, 0.91)!important;border-radius: 20px; margin: 15px;">
+
+            <h1 align="center" > <a href = "http://github.com/rhnvrm/youtube-local">Youtube Local</a> </h1>
+
             <form onsubmit="event.preventDefault();">
                 <label>Enter Youtube URL:</label> <input type="text" class="form-control" id="youtube-url" onchange="change_video()">
                 <span id="message"></span>
             </form>
 
-             <br>
+             
              <div align = "center">
             <video id="video" controls height = "480px">    
-                <source id="video-src" src="http://localhost:3000/watch/Wch3gJG2GJ4" type="video/mp4" />
+                <source id="video-src" src="" type="video/mp4" />
             </video controls>
             </div>
         </div>
