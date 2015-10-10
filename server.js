@@ -10,6 +10,8 @@ const PORT=8080;
 var express = require('express');
 var app = express();
 
+app.use('/resources', express.static(__dirname + '/resources'));
+
 app.get('/', function(req, res) {
 
   res.sendFile(__dirname + '/index.html');
@@ -83,6 +85,8 @@ app.get('/watch/:url', function(req, res){
   }
 
 });
+
+
 
 var server = app.listen(3000, function () {
   var host = server.address().address;
