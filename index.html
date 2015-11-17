@@ -21,7 +21,9 @@
             function change_video(){
                 var url = document.getElementById('youtube-url').value;
 
-                var morphed_url = "http://localhost:3000/watch/"+ url.split('?')[1].split('=')[1];
+                //TODO: SET MorphedURL dynamically
+
+                var morphed_url = "http://10.6.5.124:3000/watch/"+ url.split('?')[1].split('=')[1];
 
                 document.getElementById("video-src").src = morphed_url;
                 video = document.getElementById("video");
